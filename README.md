@@ -11,9 +11,9 @@ Generally, the only way to fix this is re-logging, or porting away and back, to 
 **Fabric API is required!**
 
 ## Download
-[![latest-builds](https://github.com/shateq/AntiGhost/actions/workflows/gradle.yml/badge.svg)](https://github.com/shateq/AntiGhost/actions/workflows/gradle.yml)
+[![latest-builds](https://github.com/shateq/AntiGhost/actions/workflows/ci.yml/badge.svg)](https://github.com/shateq/AntiGhost/actions/workflows/ci.yml)
 
-[GitHub Releases](https://github.com/shateq/AntiGhost/releases) |
+[GitHub Releases](https://github.com/shateq/AntiGhost/releases)
 ---
 ### License
 Check `LICENSE` file for more details.
