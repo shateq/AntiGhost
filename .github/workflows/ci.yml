@@ -19,5 +19,5 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: tnttime-${{ steps.ref.outputs.branch }}
+          name: antighost-${{ steps.ref.outputs.branch }}
           path: build/libs
