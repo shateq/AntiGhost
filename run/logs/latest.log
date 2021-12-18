@@ -1,0 +1,32 @@
+[16:37:54] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.18.1 with Fabric Loader 0.12.11
+[16:37:54] [main/WARN] (FabricLoader/Resolution) Mod resolution failed
+[16:37:54] [main/INFO] (FabricLoader/Resolution) Immediate reason: [HARD_DEP antighost 1.1.4 {depends fabric @ [*]}, HARD_DEP_INCOMPATIBLE_PRESELECTED fabric 0.44.0+1.18 {depends java @ [>=17]}, ROOT_FORCELOAD_SINGLE antighost 1.1.4]
+[16:37:54] [main/INFO] (FabricLoader/Resolution) Reason: [HARD_DEP fabric 0.44.0+1.18 {depends java @ [>=17]}]
+[16:37:54] [main/INFO] (FabricLoader/Resolution) Fix: add [], remove [], replace [[java 16] -> add:java 17 ([[17,?)])]
+[16:37:54] [main/ERROR] (FabricLoader) Incompatible mod set!
+net.fabricmc.loader.impl.FormattedException: net.fabricmc.loader.impl.discovery.ModResolutionException: Mod resolution encountered an incompatible mod set!
+A potential solution has been determined:
+	 - Replace 'OpenJDK 64-Bit Server VM' (java) 16 with version 17 or later.
+Unmet dependency listing:
+	 - Mod 'Fabric API' (fabric) 0.44.0+1.18 requires version 17 or later of 'OpenJDK 64-Bit Server VM' (java), but only the wrong version is present: 16!
+		 - 'OpenJDK 64-Bit Server VM' (java) 16 is an environment reference and usually requires installation or launcher changes to adjust
+Inactive mods:
+	 - 'OpenJDK 64-Bit Server VM' (java) 16, reason: to replace
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:189) ~[fabric-loader-0.12.11.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:142) ~[fabric-loader-0.12.11.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:71) [fabric-loader-0.12.11.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.12.11.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+Caused by: net.fabricmc.loader.impl.discovery.ModResolutionException: Mod resolution encountered an incompatible mod set!
+A potential solution has been determined:
+	 - Replace 'OpenJDK 64-Bit Server VM' (java) 16 with version 17 or later.
+Unmet dependency listing:
+	 - Mod 'Fabric API' (fabric) 0.44.0+1.18 requires version 17 or later of 'OpenJDK 64-Bit Server VM' (java), but only the wrong version is present: 16!
+		 - 'OpenJDK 64-Bit Server VM' (java) 16 is an environment reference and usually requires installation or launcher changes to adjust
+Inactive mods:
+	 - 'OpenJDK 64-Bit Server VM' (java) 16, reason: to replace
+	at net.fabricmc.loader.impl.discovery.ModResolver.findCompatibleSet(ModResolver.java:159) ~[fabric-loader-0.12.11.jar:?]
+	at net.fabricmc.loader.impl.discovery.ModResolver.resolve(ModResolver.java:45) ~[fabric-loader-0.12.11.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:224) ~[fabric-loader-0.12.11.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:187) ~[fabric-loader-0.12.11.jar:?]
+	... 4 more

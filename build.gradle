@@ -1,51 +1,30 @@
-buildscript {
-    dependencies {
-        classpath 'de.guntram.mcmod:crowdin-translate:1.4+1.18-pre5'
-    }
-    repositories {
-        maven {
-            name = 'CrowdinTranslate source'
-            url = "https://minecraft.guntram.de/maven/"
-        }
-    }
-}
-
 plugins {
-	id 'fabric-loom' version '0.10-SNAPSHOT'
-	id "com.modrinth.minotaur" version "1.1.0"
-	id "com.matthewprenger.cursegradle" version "1.4.0"
+	id "fabric-loom" version "0.10.9"
+	/* id "com.modrinth.minotaur" version "1.1.0"
+	id "com.matthewprenger.cursegradle" version "1.4.0" */
 }
-
-apply plugin: 'de.guntram.mcmod.crowdin-translate'
-crowdintranslate.crowdinProjectName = 'antighost'
-crowdintranslate.minecraftProjectName = 'antighost'
-crowdintranslate.verbose = false
 
 repositories {
-	maven {
-		url = "https://maven.fabricmc.net"
-	}
-	maven {
-		url = "https://minecraft.guntram.de/maven/"
-	}
+    maven {
+        url = "https://maven.fabricmc.net/"
+    }
 	maven {
 		url = "https://maven.terraformersmc.com/releases/com/terraformersmc/modmenu/"
 	}
 }
 
-sourceCompatibility = 17
-targetCompatibility = 17
+ext.archvesBaseName = "antighost-forked"
+version = "1.1.4"
 
-ext.Versions = new Properties()
-Versions.load(file("Versionfiles/mcversion-1.18.properties").newReader())
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
 
-archivesBaseName = "antighost"
-ext.projectVersion = "1.1.4"
-
-version = "${Versions['minecraft_version']}-fabric${Versions['fabric_versiononly']}-${project.projectVersion}"
-
-loom {
-    mixin.defaultRefmapName = "AntiGhost-refmap.json"
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft}"
+    mappings "net.fabricmc:yarn:${project.yarn}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric}"
 }
 
 processResources {
@@ -56,51 +35,46 @@ processResources {
     }
 }
 
-dependencies {
-    minecraft  "com.mojang:minecraft:${Versions['minecraft_version']}"
-    mappings   "net.fabricmc:yarn:${Versions['yarn_mappings']}:v2"
-    modImplementation "net.fabricmc:fabric-loader:${Versions['loader_version']}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${Versions['fabric_version']}"
-    modImplementation "de.guntram.mcmod:crowdin-translate:${Versions['crowdintranslate_version']}"
-    include "de.guntram.mcmod:crowdin-translate:${Versions['crowdintranslate_version']}"
-}
+tasks {
+    compileJava {
+        options.encoding = "UTF-8"
+        options.release.set(17)
+    }
 
-// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-// if it is present.
-// If you remove this task, sources will not be generated.
-task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = 'sources'
-	from sourceSets.main.allSource
+    processResources {
+        filteringCharset = "UTF-8"
+    }
+}
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8" // Must have!
+    it.options.release.set(17)
 }
 
 jar {
 	from "LICENSE"
 }
 
-build {
-        dependsOn downloadTranslations
-}
-
+/*
 import com.modrinth.minotaur.TaskModrinthUpload
 
 task publishModrinth (type: TaskModrinthUpload){
 
     token = System.getenv("MODRINTH_TOKEN")
-    projectId = 'Jw3Wx1KR'
+    projectId = "Jw3Wx1KR"
     versionNumber = project.version
-    versionName = 'antighost'
-    releaseType = 'release'
+    versionName = "antighost"
+    releaseType = "release"
     uploadFile = remapJar // This is the java jar task
-    addGameVersion("${Versions['minecraft_version']}")
-    addLoader('fabric')
+    addGameVersion("${Versions["minecraft_version"]}")
+    addLoader("fabric")
 }
 
 curseforge {
     apiKey = System.getenv("CURSEFORGE_TOKEN") ?: "0"
     project {
-        id = '273279'
-        releaseType = 'release'
-        addGameVersion("${Versions['minecraft_version']}")
+        id = "273279"
+        releaseType = "release"
+        addGameVersion("${Versions["minecraft_version"]}")
         addGameVersion("Java "+targetCompatibility)
         addGameVersion("Fabric")
         mainArtifact(remapJar)
@@ -109,3 +83,4 @@ curseforge {
         forgeGradleIntegration = false
     }
 }
+*/

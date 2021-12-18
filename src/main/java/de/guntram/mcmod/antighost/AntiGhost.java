@@ -1,6 +1,5 @@
 package de.guntram.mcmod.antighost;
 
-import de.guntram.mcmod.crowdintranslate.CrowdinTranslate;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v1.ClientCommandManager;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -15,19 +14,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_G;
 
-public class AntiGhost implements ClientModInitializer
-{
-    static final String MODID="antighost";
+public class AntiGhost implements ClientModInitializer {
     static KeyBinding requestBlocks;
     
     @Override
-    public void onInitializeClient()
-    {
+    public void onInitializeClient() {
         final String category="key.categories.antighost";
         requestBlocks = new KeyBinding("key.antighost.reveal", GLFW_KEY_G, category);
-        CrowdinTranslate.downloadTranslations(MODID);
         KeyBindingHelper.registerKeyBinding(requestBlocks);
-        ClientTickEvents.END_CLIENT_TICK.register(e->keyPressed());
+        ClientTickEvents.END_CLIENT_TICK.register(e -> keyPressed());
         ClientCommandManager.DISPATCHER.register(
                 ClientCommandManager.literal("ghost").executes(c -> {
                     this.execute();
@@ -45,11 +40,11 @@ public class AntiGhost implements ClientModInitializer
     }
     
     public void execute() {
-        MinecraftClient mc=MinecraftClient.getInstance();
+        MinecraftClient mc = MinecraftClient.getInstance();
         ClientPlayNetworkHandler conn = mc.getNetworkHandler();
-        if (conn==null)
+        if (conn == null)
             return;
-        BlockPos pos=mc.player.getBlockPos();
+        BlockPos pos = mc.player.getBlockPos();
         for (int dx=-4; dx<=4; dx++)
             for (int dy=-4; dy<=4; dy++)
                 for (int dz=-4; dz<=4; dz++) {

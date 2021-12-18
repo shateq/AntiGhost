@@ -6,12 +6,6 @@
     "entrypoints": {
         "client": [ "de.guntram.mcmod.antighost.AntiGhost" ]
     },
-    "custom": {
-        "modupdater": {
-            "strategy": "json",
-            "url": "https://raw.githubusercontent.com/gbl/ModVersionInfo/master/AntiGhost.json"
-        }
-    },
     "depends": {
       "fabric": "*"
     },
@@ -19,9 +13,9 @@
         "modmenu" : "*"
     },
     "name": "AntiGhost",
-    "description": "Mod that helps you get rid of ghost blocks around yourself. Use /ghost or type the g key (can be rebound) to request block-resends.",
+    "description": "Mod that helps you get rid of ghost blocks around yourself. Use /ghost or use the g key to request block-resends.",
     "icon": "icon.png",
-    "authors": [ "Giselbaer" ],
+    "authors": [ "Giselbaer", "Me, forking" ],
     "contact": {
         "homepage": "https://www.curseforge.com/minecraft/mc-mods/antighost",
         "sources": "https://github.com/gbl/AntiGhost",
