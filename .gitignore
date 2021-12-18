@@ -1,7 +1,25 @@
-build
-gradle
-.gradle
-.nb-gradle
-gradlew
+# gradle
+.gradle/
+build/
+out/
+classes/
+run/
 
-.idea
+# eclipse
+*.launch
+
+# idea
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# macos
+*.DS_Store

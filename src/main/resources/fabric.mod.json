@@ -7,7 +7,9 @@
         "client": [ "de.guntram.mcmod.antighost.AntiGhost" ]
     },
     "depends": {
-      "fabric": "*"
+      "fabric-key-binding-api-v1": "*",
+      "fabric-command-api-v1": "*",
+      "fabric-lifecycle-events-v1": "*"
     },
     "recommends": {
         "modmenu" : "*"
