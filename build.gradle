@@ -1,5 +1,5 @@
 plugins {
-	id "fabric-loom" version "0.10-SNAPSHOT"
+	id("fabric-loom") version "0.10-SNAPSHOT"
 }
 
 repositories {
@@ -19,10 +19,10 @@ java {
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:${project.minecraft}"
-    mappings "net.fabricmc:yarn:${project.yarn}:v2"
-    modImplementation "net.fabricmc:fabric-loader:${project.loader}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric}"
+    minecraft("com.mojang:minecraft:${project.minecraft}")
+    mappings("net.fabricmc:yarn:${project.yarn}:v2")
+    modImplementation("net.fabricmc:fabric-loader:${project.loader}")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric}")
 }
 
 tasks {
@@ -32,17 +32,13 @@ tasks {
     }
     processResources {
         filteringCharset = "UTF-8"
+
+        inputs.property "version", project.version
+        filesMatching("fabric.mod.json") {
+            expand "version": project.version
+        }
     }
-}
-
-processResources {
-    inputs.property "version", project.version
-
-    filesMatching("fabric.mod.json") {
-        expand "version": project.version
+    jar {
+        from "LICENSE"
     }
-}
-
-jar {
-	from "LICENSE"
 }

@@ -1,4 +1,4 @@
-<img src="src/main/resources/logo.png" width="256">
+<img src="logo.png" width="256" />
 
 # AntiGhost
 <em>Ghost blocks are blocks that seem to be air to the client, but are solid to the server. They occur when the server and client are out of sync; in many cases, this happens when a haste effect wears off and there's some network latency between both. 

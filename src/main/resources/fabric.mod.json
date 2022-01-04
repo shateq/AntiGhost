@@ -2,6 +2,17 @@
     "schemaVersion": 1,
     "id": "antighost",
     "version": "${version}",
+
+    "name": "AntiGhost",
+    "description": "Fork of a mod that helps you get rid of ghost blocks around yourself. Use /ghost or use the G key to request block-resends.",
+    "icon": "icon.png",
+    "authors": [ "Giselbaer", "Me, forking" ],
+    "contact": {
+        "homepage": "https://www.curseforge.com/minecraft/mc-mods/antighost",
+        "sources": "https://github.com/shateq/AntiGhost",
+        "issues": "https://github.com/gbl/AntiGhost/issues"
+    },
+
     "environment": "client",
     "entrypoints": {
         "client": [ "de.guntram.mcmod.antighost.AntiGhost" ]
@@ -13,14 +24,5 @@
     },
     "recommends": {
         "modmenu" : "*"
-    },
-    "name": "AntiGhost",
-    "description": "Mod that helps you get rid of ghost blocks around yourself. Use /ghost or use the g key to request block-resends.",
-    "icon": "icon.png",
-    "authors": [ "Giselbaer", "Me, forking" ],
-    "contact": {
-        "homepage": "https://www.curseforge.com/minecraft/mc-mods/antighost",
-        "sources": "https://github.com/gbl/AntiGhost",
-        "issues": "https://github.com/gbl/AntiGhost/issues"
     }
 }
