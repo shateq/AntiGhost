@@ -27,6 +27,8 @@ dependencies {
 
 tasks {
     compileJava {
+        targetCompatibility = JavaVersion.VERSION_17
+    
         options.encoding = "UTF-8"
         options.release.set(17)
     }
