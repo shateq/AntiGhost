@@ -1,5 +1,5 @@
 plugins {
-	id("fabric-loom") version "0.10-SNAPSHOT"
+	id("fabric-loom") version "0.10.+"
 }
 
 repositories {
@@ -11,6 +11,7 @@ repositories {
 	}
 }
 
+targetCompatibility = JavaVersion.VERSION_17
 archivesBaseName = "antighost-1.18-forked"
 version = "1.1.4"
 
@@ -27,8 +28,6 @@ dependencies {
 
 tasks {
     compileJava {
-        targetCompatibility = JavaVersion.VERSION_17
-    
         options.encoding = "UTF-8"
         options.release.set(17)
     }
